@@ -23,6 +23,9 @@ const allCerts = [
     file: "IBMDesign20251101-32-m5e5zp.pdf",
   },
   { title: "Full Stack Development — Upflairs", file: "Upflairs.pdf" },
+   { title: "CodeAlpha - Full Stack Development Intern", file: "Code_Alpha.pdf" },
+   { title: "Codec Technologies - MERN Stack Developer Intern", file: "Codec_technologies.pdf" },
+   { title: "Edunet Foundation - AI & Cloud Intern (IBM SkillsBuild)", file: "edunet_foundation.pdf" },
 ];
 
 export default function Certifications() {
