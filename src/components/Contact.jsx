@@ -1,6 +1,21 @@
 // src/components/Contact.jsx
-import React, { useState } from "react";
-import { contactEmail } from "../config";
+import React, { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import {
+  contactEmail,
+  emailjsServiceId,
+  emailjsTemplateId,
+  emailjsPublicKey,
+} from "../config";
+
+// Initialize EmailJS once
+if (emailjsPublicKey) {
+  try {
+    emailjs.init(emailjsPublicKey);
+  } catch (err) {
+    // ignore if already initialized
+  }
+}
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -14,16 +29,17 @@ export default function Contact() {
 
   function validate() {
     const e = {};
-    if (!form.name.trim()) e.name = "Please enter your name.";
-    if (!form.email.trim()) e.email = "Please enter your email.";
+    if (!form.name || !form.name.trim()) e.name = "Please enter your name.";
+    if (!form.email || !form.email.trim()) e.email = "Please enter your email.";
     if (form.email && !/^\S+@\S+\.\S+$/.test(form.email))
       e.email = "Enter a valid email.";
-    if (!form.message.trim()) e.message = "Please enter a message.";
+    if (!form.message || !form.message.trim())
+      e.message = "Please enter a message.";
     return e;
   }
 
-  async function submit(e) {
-    e.preventDefault();
+  async function submit(ev) {
+    ev.preventDefault();
     const eobj = validate();
     if (Object.keys(eobj).length) {
       setErrors(eobj);
@@ -31,41 +47,44 @@ export default function Contact() {
       return;
     }
 
+    if (!emailjsServiceId || !emailjsTemplateId || !emailjsPublicKey) {
+      setStatus({
+        loading: false,
+        ok: false,
+        msg: "Email service not configured. Please set EmailJS env variables.",
+      });
+      return;
+    }
+
     setStatus({ loading: true, ok: null, msg: "" });
 
     try {
-      const endpoint = "https://formspree.io/f/xeoyrgdd"; // your Formspree endpoint
+      const payload = {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+        to_email: contactEmail,
+      };
 
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          _subject: `Portfolio message from ${form.name}`, // optional subject
-        }),
-      });
+      const result = await emailjs.send(
+        emailjsServiceId,
+        emailjsTemplateId,
+        payload
+      );
 
-      // Formspree returns 200/201 for success; handle JSON error messages if any
-      if (!res.ok) {
-        let errMsg = "Submission failed — please try again later.";
-        try {
-          const errJson = await res.json();
-          if (errJson && errJson.error) errMsg = errJson.error;
-        } catch (jsonErr) {
-          // ignore parse error
-        }
-        throw new Error(errMsg);
+      if (result && result.status === 200) {
+        setStatus({
+          loading: false,
+          ok: true,
+          msg: "Message sent — thank you!",
+        });
+        setForm({ name: "", email: "", message: "" });
+        setErrors({});
+      } else {
+        throw new Error("EmailJS returned unexpected response");
       }
-
-      setStatus({ loading: false, ok: true, msg: "Message sent — thank you!" });
-      setForm({ name: "", email: "", message: "" });
-      setErrors({});
     } catch (err) {
+      console.error("Email send error:", err);
       setStatus({
         loading: false,
         ok: false,
@@ -81,10 +100,8 @@ export default function Contact() {
       aria-labelledby="contact-heading"
     >
       <h2 id="contact-heading">Contact</h2>
-
       <div className="card" style={{ display: "grid", gap: 12 }}>
         <form onSubmit={submit} style={{ display: "grid", gap: 12 }} noValidate>
-          {/* Name */}
           <div>
             <label
               htmlFor="contact-name"
@@ -114,7 +131,6 @@ export default function Contact() {
             )}
           </div>
 
-          {/* Email */}
           <div>
             <label
               htmlFor="contact-email"
@@ -145,7 +161,6 @@ export default function Contact() {
             )}
           </div>
 
-          {/* Message */}
           <div>
             <label
               htmlFor="contact-message"
@@ -176,10 +191,8 @@ export default function Contact() {
             )}
           </div>
 
-          {/* blank line before button */}
           <div style={{ height: 8 }} />
 
-          {/* Send button */}
           <div>
             <button
               className="cta"
@@ -192,7 +205,6 @@ export default function Contact() {
             </button>
           </div>
 
-          {/* blank line between button and email */}
           <div style={{ height: 8 }} />
 
           <div className="small" style={{ color: "var(--muted)" }}>
@@ -208,7 +220,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* submission status */}
           <div
             role="status"
             aria-live="polite"
