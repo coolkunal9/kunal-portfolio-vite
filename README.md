@@ -118,7 +118,7 @@ I'm a passionate full-stack developer from **Jaipur, India** specializing in bui
 
 ## 🚀 Quick Links
 
-- 🌐 **Live Portfolio**: [kunalprasad-portfolio.vercel.app](https://kunalprasad-portfolio.vercel.app/)
+- 🌐 **Live Portfolio**: [kunalprasad-portfolio.vercel.app](https://kunal-portfolio-vite.vercel.app/)
 - 📄 **Resume**: Available in portfolio
 - 💬 **Email**: [kunalprasad142@gmail.com](mailto:kunalprasad142@gmail.com)
 - 🔗 **LinkedIn**: [linkedin.com/in/kunal-prasad-7676392bb](https://linkedin.com/in/kunal-prasad-7676392bb)
