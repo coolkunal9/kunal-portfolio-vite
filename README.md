@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-kunalprasad--portfolio.vercel.app-blue?style=for-the-badge&logo=vercel)](https://kunalprasad-portfolio.vercel.app)
+[![Portfolio](https://img.shields.io/badge/Portfolio-kunalprasad--portfolio.vercel.app-blue?style=for-the-badge&logo=vercel)](https://kunal-portfolio-vite.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-%40coolkunal9-black?style=for-the-badge&logo=github)](https://github.com/coolkunal9)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Kunal%20Prasad-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/kunal-prasad-7676392bb)
 [![Email](https://img.shields.io/badge/Email-kunalprasad142%40gmail.com-EA4335?style=for-the-badge&logo=gmail)](mailto:kunalprasad142@gmail.com)
