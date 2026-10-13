@@ -3,6 +3,7 @@ import Section from "../components/ui/Section";
 import SectionHeading from "../components/ui/SectionHeading";
 import Card from "../components/ui/Card";
 import ScrollReveal from "../components/ScrollReveal";
+import { ExternalLink } from "lucide-react";
 
 export default function Experience() {
   return (
@@ -11,7 +12,7 @@ export default function Experience() {
         <SectionHeading
           eyebrow="Work History"
           title="Experience & Internships"
-          description="Internship training programs and peer academic contributions."
+          description="Internship training programs and campus contributions."
         />
       </ScrollReveal>
 
@@ -42,6 +43,25 @@ export default function Experience() {
                   ))}
                 </ul>
               </div>
+
+              {exp.credentialNote && (
+                <div className="mt-4 border-t border-[var(--border-subtle)] pt-3 flex items-center justify-between">
+                  <span className="font-mono text-[11px] text-[var(--accent-text)]">
+                    Note: {exp.credentialNote}
+                  </span>
+                  {exp.credentialUrl && (
+                    <a
+                      href={exp.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-mono text-[11px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:underline"
+                    >
+                      <span>View PDF</span>
+                      <ExternalLink size={11} />
+                    </a>
+                  )}
+                </div>
+              )}
             </Card>
           </ScrollReveal>
         ))}

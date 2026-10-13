@@ -22,8 +22,9 @@ export const PERSONAL = {
   statusBadge: "Open to entry-level roles (Jaipur or remote)",
   bio: "B.Tech IT graduate from Arya College of Engineering, Jaipur. Focused on building responsive React applications and conducting structured data analysis in spreadsheets and SQL.",
   email: "kunalprasad142@gmail.com",
-  linkedin: "https://linkedin.com/in/kunalprasaddev",
+  linkedin: "https://www.linkedin.com/in/kunalprasad-dev/",
   github: "https://github.com/coolkunal9",
+  portfolioRepo: "https://github.com/coolkunal9/kunal-portfolio-vite",
   resumeUrl: "/resume.pdf",
   proofChips: [
     "10 stories, full-stack MERN",
@@ -35,9 +36,9 @@ export const PERSONAL = {
 // ── About ───────────────────────────────────────────────────
 export const ABOUT = {
   paragraphs: [
-    "I am a B.Tech Information Technology graduate (Arya College of Engineering, Sep 2022 – Jun 2026), based in Jaipur, India. I am open to entry-level Frontend Developer and Data Analyst roles (Jaipur or remote).",
-    "My development work centers on building React interfaces with clean component architectures, robust state handling, and integrated REST APIs. In data analytics, I perform structured data cleaning, lookup models, pivot table analyses, and dashboard reporting using Excel and Google Sheets.",
-    "I focus on writing verifiable code with automated integration tests, defensive input validation, and clear documentation of architectural tradeoffs.",
+    "B.Tech Information Technology graduate from Arya College of Engineering, Jaipur, with a frontend focus in React and Tailwind CSS alongside spreadsheet and SQL data analysis.",
+    "Built State Stories, a full-stack MERN application with 17 integration tests, and the Zomato international expansion screener analyzing 9,551 records.",
+    "Looking for entry-level Frontend Developer or Data Analyst roles in Jaipur or remote.",
   ],
 };
 
@@ -45,42 +46,40 @@ export const ABOUT = {
 export const SKILLS = {
   groups: [
     {
-      title: "Frontend (Strong)",
+      title: "Frontend",
       items: [
         "React.js",
-        "JavaScript (ES6+)",
-        "HTML5 / CSS3",
+        "JavaScript",
+        "HTML/CSS",
         "Tailwind CSS",
         "Git",
       ],
     },
     {
-      title: "Data Analytics (Strong)",
+      title: "Data Analytics",
       items: [
         "Excel",
         "Google Sheets",
-        "Data Cleaning",
-        "VLOOKUP / XLOOKUP",
-        "Pivot Tables",
+        "Data cleaning",
+        "VLOOKUP",
+        "Pivot tables",
         "Dashboards",
+        "Basic SQL",
       ],
     },
     {
-      title: "Backend & Database (Working)",
+      title: "Backend & Database",
       items: [
         "Express.js",
         "MongoDB",
-        "Basic SQL (SELECT, filtering, GROUP BY, joins)",
       ],
     },
     {
-      title: "Currently Learning",
+      title: "Currently learning",
       isLearning: true,
       items: [
         "SQL on real datasets",
-        "Python for data analysis (pandas, matplotlib)",
         "Statistics fundamentals",
-        "Intro to machine learning",
       ],
     },
   ],
@@ -97,31 +96,32 @@ export const PROJECTS = [
     problem:
       "Curating culture and heritage across 10 Indian states with performant search, optimistic user interactions, and tested backend security.",
     description:
-      "A full-stack MERN editorial platform covering 10 Indian states. Built with React 18 frontend and Express 5 REST API layered into routes -> services -> models, backed by MongoDB Atlas with Mongoose.",
+      "Full-stack MERN editorial platform covering 10 Indian states. Built with React 18 frontend and Express 5 REST API layered into routes, services, and models, backed by MongoDB Atlas.",
     role: "Full-stack development, automated integration testing, and security self-audit & hardening.",
     stack: [
       "React 18",
       "React Router v7",
+      "Tailwind CSS",
+      "Framer Motion",
       "Express 5",
       "MongoDB Atlas",
       "Mongoose",
-      "Tailwind CSS",
-      "Framer Motion",
+      "Joi",
       "Jest / Supertest",
     ],
     features: [
-      "Frontend: React 18, React Router v7, Tailwind, Framer Motion, dark mode, debounced search (300ms) with AbortController cancellation, optimistic comment updates, protected profile page.",
-      "Backend: Express 5 REST API with routes -> services -> models layering, Mongoose, MongoDB Atlas, Joi validation, centralized error handler.",
-      "Auth: JWT (7-day expiry) + bcrypt (12 rounds); token stored in localStorage.",
-      "Search & Indexing: MongoDB $text index across title, state, content. Compound index on comments (article, createdAt).",
-      "Security Self-Audit & Hardening: Fail-fast JWT secret guard in production, CORS allowlist without wildcards, auth rate limiting (10 req / 15 min), regex-escaping of state filter, capped pagination (max 50), Helmet headers, idempotent seed script with production guard.",
-      "Automated Testing: 17 integration tests (Jest, Supertest, MongoMemoryServer) covering auth, articles, and comments.",
-      "Deployment: Vercel (frontend + serverless Express backend) and MongoDB Atlas.",
+      "10 state stories curated across culture and heritage.",
+      "Frontend: React 18, React Router v7, Tailwind, Framer Motion; debounced search (300ms) with AbortController cancellation; optimistic comment updates; protected profile page.",
+      "Backend: Express 5 API with routes, services, and models layering; Joi validation; centralized error handler.",
+      "Auth & Search: JWT (7-day expiry) + bcrypt (12 rounds); MongoDB $text search across title, state, and content; compound index on comments (article, createdAt).",
+      "Testing: 17 integration tests across auth, articles, and comments using Jest, Supertest, and MongoMemoryServer.",
+      "Security self-audit and hardening: fail-fast JWT secret guard in production, CORS allowlist without wildcards, auth rate limiting (10 req / 15 min), regex-escaping of state filter, capped pagination (max 50), Helmet headers, idempotent seed script with production guard.",
+      "Deployment: Vercel (frontend and serverless Express backend) and MongoDB Atlas.",
     ],
     tradeoffs:
       "Tradeoffs: JWT in localStorage has no refresh/revocation; in-memory rate limiting is per serverless instance.",
-    github: "[PLACEHOLDER: GitHub URL]",
-    live: "[PLACEHOLDER: live URL]",
+    github: "https://github.com/coolkunal9/state-stories",
+    live: "https://state-stories.vercel.app/",
   },
   {
     id: "zomato-screener",
@@ -143,16 +143,16 @@ export const PROJECTS = [
       "Statistical Formulas",
     ],
     features: [
-      "Dataset Scope: 9,551 restaurants, 15 countries (8,652 India listings / 90.6%; 14 countries outside India; 7,403 rated; 2,148 unrated treated as missing).",
+      "Dataset Scope: 9,551 restaurants across 15 countries (8,652 India listings, 90.6%; 14 countries outside India; 7,403 rated; 2,148 unrated treated as missing).",
       "Data Cleaning: Rating_Clean field created; zero costs and zero coordinates treated as missing; country names standardized via lookup; costs converted to INR.",
       "Market Findings: Indonesia (21 listings, ~772 avg votes) and Turkey (34 listings, ~432 avg votes) led engagement outside India.",
       "City Screen: Jakarta (4.36 rating / 742.69 votes), Istanbul (4.29 / 860.21), Ankara (4.31 / 131.35), Doha (4.06 / 163.80), Colombo (3.87 / 146.45).",
       "Recommendation: Staged research plan prioritizing initial diligence in Indonesia and Turkey, comparing against Qatar and Sri Lanka.",
     ],
     tradeoffs:
-      "Limitations: Historical snapshot without revenue, footfall, or rent data. Small sample sizes outside India; votes reflect engagement rather than market demand.",
+      "Limitations: Historical snapshot without revenue, footfall, or rent data. Small samples (14-20 listings per city outside India); votes reflect engagement rather than market demand.",
     github: null,
-    live: "[PLACEHOLDER: Google Sheet link]",
+    live: "https://docs.google.com/spreadsheets/d/e/2PACX-1vShjJaXHpAKQRjvNrDSSHYnelcwcL-ZKPluwVdYW0JfbqYQH-B-7fVR6jaYQyk-4VJPid_xZ3k2KAiV/pubhtml",
   },
 ];
 
@@ -162,9 +162,9 @@ export const CASE_STUDY = {
   subtitle: "Market entry analysis using Google Sheets · 9,551 restaurants across 15 countries",
   businessQuestion: "Where should a new restaurant brand look first outside India?",
   dataOverview: {
-    records: "9,551 restaurants (8,652 India listings / 90.6%; 14 countries outside India)",
+    records: "9,551 restaurants across 15 countries",
     coverage: "7,403 rated listings; 2,148 unrated listings (rating 1.0 treated as not rated)",
-    source: "Historical dataset snapshot [PLACEHOLDER: year/source]. No revenue, footfall, rent or cost data.",
+    source: "Historical dataset snapshot; 90.6% of records are India listings (no revenue, footfall, rent or cost data).",
   },
   cleaningSteps: [
     "Created Rating_Clean field, treating rating 1.0 and unrated entries as missing",
@@ -205,12 +205,12 @@ export const CASE_STUDY = {
     },
   ],
   recommendation:
-    "Staged research plan (not an immediate launch): Start diligence in Indonesia and Turkey; maintain Qatar and Sri Lanka as comparison markets; test Indonesian, kebab/Turkish, and dessert concepts in small pilots; price around local medians; validate rent, footfall, and delivery economics locally.",
+    "Staged research plan: Start diligence in Indonesia and Turkey; keep Qatar and Sri Lanka as comparison markets; test Indonesian, kebab/Turkish, and dessert concepts in small pilots; price around local medians; validate rent, footfall, and delivery economics locally.",
   limitations: [
-    "Small sample sizes outside India (14–34 listings per candidate country).",
-    "Vote counts reflect app engagement and tourist activity, not overall market demand.",
-    "INR conversions require verified exchange rates [PLACEHOLDER: Turkey cost conversion verification and exchange-rate source/date].",
-    "[PLACEHOLDER: Why was the Philippines (4.47 avg rating, 22 listings) not shortlisted? Write my own selection criteria.]",
+    "Small samples (14–20 listings per city outside India).",
+    "Votes reflect app engagement rather than total market demand.",
+    "Dataset contains no revenue, footfall, or rent data.",
+    "Conversion of costs to INR not independently verified.",
   ],
   tools: [
     "Google Sheets",
@@ -221,13 +221,11 @@ export const CASE_STUDY = {
     "FILTER",
     "Conditional Formatting",
   ],
-  screenshotPlaceholders: [
-    "[PLACEHOLDER: dashboard screenshot at 2x resolution — overview]",
-    "[PLACEHOLDER: dashboard screenshot at 2x resolution — country & city breakdown]",
-  ],
-  sheetLink: "[PLACEHOLDER: Google Sheet link]",
+  screenshotPlaceholders: [], // No images exist; kept empty so no placeholder renders
+  sheetLink:
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vShjJaXHpAKQRjvNrDSSHYnelcwcL-ZKPluwVdYW0JfbqYQH-B-7fVR6jaYQyk-4VJPid_xZ3k2KAiV/pubhtml",
   whatNext:
-    "Redo the analysis in SQL and Python (pandas) for full pipeline reproducibility.",
+    "Redo the analysis in SQL for reproducibility and to practise joins and aggregation.",
 };
 
 // ── Learning Roadmap ────────────────────────────────────────
@@ -239,22 +237,10 @@ export const LEARNING_ROADMAP = [
       "Writing SELECT, GROUP BY, JOINs, and subqueries on practice datasets.",
   },
   {
-    label: "Python for data analysis",
-    status: "next",
-    description:
-      "pandas, matplotlib, and Jupyter notebooks for exploratory analysis.",
-  },
-  {
     label: "Statistics fundamentals",
     status: "planned",
     description:
       "Distributions, hypothesis testing, correlation, and regression basics.",
-  },
-  {
-    label: "Intro to machine learning",
-    status: "planned",
-    description:
-      "Supervised learning basics — linear regression, classification, scikit-learn.",
   },
 ];
 
@@ -264,6 +250,7 @@ export const EXPERIENCE = [
     role: "Campus Mantri",
     org: "GeeksforGeeks",
     period: "Jan – Jun 2026",
+    credentialNote: "Campus Mantri Appointment",
     bullets: [
       "Appointed to help peers build fundamentals; encouraged participation in DSA and coding practice.",
     ],
@@ -272,15 +259,18 @@ export const EXPERIENCE = [
     role: "Full Stack Developer Intern",
     org: "CodeAlpha",
     period: "Oct – Nov 2025 (1 month)",
+    credentialNote: "Letter of Recommendation",
+    credentialUrl: "/files/Code_Alpha.pdf",
     bullets: [
-      "Completed a one-month virtual internship; received a letter of recommendation.",
-      "[PLACEHOLDER: 1-2 specific tasks I built]",
+      "Completed a one-month virtual Full Stack Development internship; received a letter of recommendation.",
     ],
   },
   {
     role: "AI & Cloud Intern",
     org: "Edunet Foundation × AICTE × IBM SkillsBuild",
     period: "Jul – Aug 2025 (4 weeks)",
+    credentialNote: "IBM SkillsBuild Badges",
+    credentialUrl: "/files/edunet_foundation.pdf",
     bullets: [
       "Completed a 4-week program in Emerging Technologies.",
       "Earned two IBM SkillsBuild badges (Getting Started with AI; Journey to Cloud).",
@@ -290,6 +280,8 @@ export const EXPERIENCE = [
     role: "Full Stack Web Development Intern",
     org: "Upflairs Pvt. Ltd.",
     period: "Jul – Aug 2024 (45 days)",
+    credentialNote: "Certificate of Training (45 days)",
+    credentialUrl: "/files/Upflairs.pdf",
     bullets: [
       "Completed a 45-day offline training program.",
       "Practised HTML, CSS, JavaScript, Git/GitHub; built responsive pages and small projects.",
@@ -297,35 +289,38 @@ export const EXPERIENCE = [
   },
 ];
 
-// ── Education ───────────────────────────────────────────────
+// ── Education & Training ────────────────────────────────────
 export const EDUCATION = {
   degree: "B.Tech Information Technology",
   institution: "Arya College of Engineering",
   location: "Jaipur, Rajasthan, India",
   duration: "Sep 2022 – Jun 2026",
   status: "Graduate",
+  training: "Newton School Data Analytics: in progress (Excel and Google Sheets completed, SQL in progress)",
 };
 
 // ── Certifications ──────────────────────────────────────────
 export const CERTIFICATIONS = [
   {
+    name: "5-Day AI Agents Intensive",
+    issuer: "Google",
+  },
+  {
+    name: "Expert POTD Solver (GeekStreak)",
+    issuer: "NPCI × GeeksforGeeks",
+  },
+  {
     name: "Getting Started with AI",
-    issuer: "IBM SkillsBuild (via Edunet Foundation × AICTE)",
+    issuer: "IBM SkillsBuild",
+    fileUrl: "/files/IBMDesign20251101-32-axuoi5.pdf",
   },
   {
     name: "Journey to Cloud",
-    issuer: "IBM SkillsBuild (via Edunet Foundation × AICTE)",
+    issuer: "IBM SkillsBuild",
+    fileUrl: "/files/IBMDesign20251101-32-m5e5zp.pdf",
   },
   {
-    name: "Letter of Recommendation",
-    issuer: "CodeAlpha (Full Stack Developer Internship)",
-  },
-  {
-    name: "Certificate of Training (Full Stack Web Development, 45 Days)",
-    issuer: "Upflairs Pvt. Ltd.",
-  },
-  {
-    name: "Campus Mantri Appointment",
-    issuer: "GeeksforGeeks",
+    name: "MongoDB Overview: Core Concepts and Architecture",
+    issuer: "MongoDB",
   },
 ];

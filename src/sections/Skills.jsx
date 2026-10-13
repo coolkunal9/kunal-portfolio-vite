@@ -12,7 +12,7 @@ export default function Skills() {
         <SectionHeading
           eyebrow="Capabilities"
           title="Skills & Technologies"
-          description="Technical competencies focused on reliable interfaces and rigorous data analysis."
+          description="Frontend, data analytics, and backend technologies."
         />
       </ScrollReveal>
 
@@ -21,14 +21,9 @@ export default function Skills() {
           <ScrollReveal key={group.title} delay={idx * 0.08}>
             <Card className="h-full flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-semibold text-[var(--text-primary)]">
-                    {group.title}
-                  </h3>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">
-                    {group.isLearning ? "Active" : "Core"}
-                  </span>
-                </div>
+                <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-4">
+                  {group.title}
+                </h3>
 
                 <div className="flex flex-wrap gap-1.5">
                   {group.items.map((skill) => (

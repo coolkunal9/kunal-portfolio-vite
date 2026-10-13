@@ -73,23 +73,19 @@ export default function ProjectCard({ project }) {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          {liveUrl ? (
+          {liveUrl && (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-primary)] hover:text-[var(--accent-text)] transition-colors"
             >
-              <span>Live Site</span>
+              <span>{isData ? "Google Sheet" : "Live Site"}</span>
               <ExternalLink size={13} />
             </a>
-          ) : project.live ? (
-            <span className="font-mono text-[10px] text-[var(--text-tertiary)]">
-              {project.live}
-            </span>
-          ) : null}
+          )}
 
-          {githubUrl ? (
+          {githubUrl && (
             <a
               href={githubUrl}
               target="_blank"
@@ -99,11 +95,7 @@ export default function ProjectCard({ project }) {
               <Github size={14} />
               <span>Repository</span>
             </a>
-          ) : project.github ? (
-            <span className="font-mono text-[10px] text-[var(--text-tertiary)]">
-              {project.github}
-            </span>
-          ) : null}
+          )}
         </div>
       </div>
     </Card>

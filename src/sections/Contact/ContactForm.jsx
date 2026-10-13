@@ -6,7 +6,7 @@ import Input from "../../components/ui/Input";
 import Textarea from "../../components/ui/Textarea";
 import Button from "../../components/ui/Button";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/[PLACEHOLDER_ENDPOINT]";
+const FORMSPREE_ENDPOINT = "";
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -32,8 +32,8 @@ export default function ContactForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    // If endpoint is a placeholder, direct to mailto immediately
-    if (FORMSPREE_ENDPOINT.includes("[PLACEHOLDER")) {
+    // If endpoint is not configured, direct to mailto immediately
+    if (!FORMSPREE_ENDPOINT) {
       const subject = encodeURIComponent(`Portfolio Inquiry from ${form.name}`);
       const body = encodeURIComponent(
         `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`

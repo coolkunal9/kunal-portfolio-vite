@@ -14,7 +14,7 @@ export default function ContactInfo() {
     },
     {
       title: "LinkedIn Profile",
-      value: "linkedin.com/in/kunalprasaddev",
+      value: "linkedin.com/in/kunalprasad-dev/",
       href: PERSONAL.linkedin,
       icon: Linkedin,
       isExternal: true,

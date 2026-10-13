@@ -43,10 +43,17 @@ export default function About() {
               </p>
             </div>
 
-            <div className="mt-6 border-t border-[var(--border-subtle)] pt-4">
-              <span className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] px-2.5 py-0.5 font-mono text-xs text-[var(--text-secondary)]">
-                Status: {EDUCATION.status}
-              </span>
+            <div className="mt-6 border-t border-[var(--border-subtle)] pt-4 space-y-2">
+              <div>
+                <span className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] px-2.5 py-0.5 font-mono text-xs text-[var(--text-secondary)]">
+                  Status: {EDUCATION.status}
+                </span>
+              </div>
+              {EDUCATION.training && (
+                <p className="font-mono text-xs text-[var(--text-tertiary)] leading-relaxed">
+                  {EDUCATION.training}
+                </p>
+              )}
             </div>
           </Card>
         </ScrollReveal>

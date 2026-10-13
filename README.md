@@ -1,141 +1,74 @@
-# 🚀 Kunal Prasad - Full Stack MERN Developer
+# Kunal Prasad — Portfolio
 
-<div align="center">
+Personal portfolio for **Kunal Prasad**, built with React 18, Vite, Tailwind CSS v4, and Framer Motion.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-kunalprasad--portfolio.vercel.app-blue?style=for-the-badge&logo=vercel)](https://kunal-portfolio-vite.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-%40coolkunal9-black?style=for-the-badge&logo=github)](https://github.com/coolkunal9)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Kunal%20Prasad-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/kunal-prasad-7676392bb)
-[![Email](https://img.shields.io/badge/Email-kunalprasad142%40gmail.com-EA4335?style=for-the-badge&logo=gmail)](mailto:kunalprasad142@gmail.com)
+## 🎯 Positioning
+**Frontend Developer (React) who also analyses data** — targeting entry-level Frontend Developer and Data Analyst roles.
 
-**Full-Stack Developer | MERN Stack Specialist | Cloud & AI Integrations**
-
-</div>
-
----
-
-## 👋 About Me
-
-I'm a passionate full-stack developer from **Jaipur, India** specializing in building clean, scalable **MERN applications** and production-ready **AI integrations**. I focus on optimizing web performance, designing secure APIs, and deploying containerized services. I have completed **4 internships** and shipped **10+ projects**.
-
-### 🎯 Core Focus
-- 🏗️ Production-ready MERN Stack (React, Node, Express, MongoDB Atlas)
-- 🤖 AI Integrations (Gemini API, Structured Outputs, Rate Limiting)
-- ☁️ Cloud Services & Containerization (Google Cloud Run, Docker, Cloud Build)
-- ⚡ Frontend Performance & Reusable Components (Tailwind CSS, Vite, Redux, Next.js)
+- **Location**: Jaipur, Rajasthan, India
+- **Education**: B.Tech Information Technology, Arya College of Engineering (Sep 2022 – Jun 2026)
+- **Email**: [kunalprasad142@gmail.com](mailto:kunalprasad142@gmail.com)
+- **LinkedIn**: [linkedin.com/in/kunalprasad-dev/](https://www.linkedin.com/in/kunalprasad-dev/)
+- **GitHub**: [github.com/coolkunal9](https://github.com/coolkunal9)
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Architecture
 
-### Languages & Frameworks
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-
-### Databases & Tools
-![MongoDB](https://img.shields.io/badge/MongoDB-13AA52?style=for-the-badge&logo=mongodb&logoColor=white)
-![Google Cloud Run](https://img.shields.io/badge/Google_Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+- **Core**: React 18, JavaScript (ES6+), HTML5, CSS3
+- **Styling**: Tailwind CSS v4 with custom CSS variable design tokens
+- **Motion**: Framer Motion with `prefers-reduced-motion` compliance
+- **Icons**: Lucide React + custom inline SVGs
+- **Build Tool**: Vite 7
+- **Architecture**: Modular layout & UI primitives (`Container`, `Section`, `Button`, `Card`, `Badge`, `Tag`), with all content centralized in `src/data/content.js`.
 
 ---
 
-## 📂 Key Shipped Projects
+## 📂 Featured Projects
 
-### 1. **JobConnect — Smart Job Portal** 💼
-- **Tech**: MongoDB Atlas, Express, React, Node.js, JWT, Cloudinary, Tailwind CSS
-- **Features**: Role-based authentication, secure resume uploads, recruiter dashboards, and application tracking with MongoDB query optimizations.
-- **Repo**: [JobConnect](https://github.com/coolkunal9/JobConnect)
+### 1. State Stories (Full-Stack MERN)
+- **Description**: Full-stack MERN editorial platform covering the culture and heritage of 10 Indian states.
+- **Frontend**: React 18, React Router v7, Tailwind CSS, Framer Motion, debounced search (300ms) with AbortController cancellation, optimistic comment updates.
+- **Backend**: Express 5 REST API layered into routes, services, and models; Joi validation; centralized error handling.
+- **Auth & Database**: JWT (7-day expiry) + bcrypt (12 rounds); MongoDB $text search index across title, state, and content; compound index on comments.
+- **Testing**: 17 integration tests using Jest, Supertest, and MongoMemoryServer.
+- **Deployment**: Vercel + MongoDB Atlas.
+- **Live**: [state-stories.vercel.app](https://state-stories.vercel.app/)
+- **Repository**: [github.com/coolkunal9/state-stories](https://github.com/coolkunal9/state-stories)
 
-### 2. **State Stories — Regional News Platform** 📰
-- **Tech**: React.js, Node.js, Express.js, MongoDB, REST APIs, Tailwind CSS
-- **Features**: State-wise blogging and news feed sorting with index optimizations in MongoDB.
-- **Repo**: [state-stories](https://github.com/coolkunal9/state-stories)
-
-### 3. **CareerGenie — AI Interview Prep** 🤖
-- **Tech**: React.js, Vite, Gemini API, JavaScript, Tailwind CSS
-- **Features**: Dynamic mock interviews, real-time feedback loops, structured JSON error handling, and quota rate-limiting middleware.
-- **Repo**: [CareerGenie-AI-Interview-Prep](https://github.com/coolkunal9/CareerGenie-AI-Interview-Prep)
-
-### 4. **RoastMyResume — AI DevCard Generator** 🔥
-- **Tech**: React, Node.js, Gemini API, Google Cloud Run, Docker, Tailwind CSS
-- **Features**: NLP-based resume roasting, containerized backend microservices deployed on Google Cloud Run, and dynamic DevCard downloads.
-- **Repo**: [RoastMyResume](https://github.com/coolkunal9/RoastMyResume)
-
-### 5. **GitHub Profile Analyzer** 📊
-- **Tech**: React, Vite, GitHub REST API, Chart.js, Tailwind CSS
-- **Features**:語言比例、星數統計，配合 glassmorphism 視窗和 Chart.js 展示開發者偏好。
-- **Repo**: [github-analyzer](https://github.com/coolkunal9/github-analyzer)
+### 2. Zomato Restaurant Expansion Screener (Data Analytics)
+- **Description**: Screener analyzing 9,551 restaurants across 15 countries from a historical dataset snapshot to evaluate international market expansion outside India.
+- **Tools**: Google Sheets, Excel, Pivot Tables, VLOOKUP, Statistical Formulas, Slicers, Conditional Formatting.
+- **Findings**: Identifies engagement and high-score density leaders (Turkey, Indonesia, Qatar, Sri Lanka) with sample-size caveats and city-level breakdowns.
+- **Google Sheet**: [View Published Analysis](https://docs.google.com/spreadsheets/d/e/2PACX-1vShjJaXHpAKQRjvNrDSSHYnelcwcL-ZKPluwVdYW0JfbqYQH-B-7fVR6jaYQyk-4VJPid_xZ3k2KAiV/pubhtml)
 
 ---
 
-## 💼 Work Experience
+## 🚀 Getting Started
 
-| Role | Company | Duration |
-|---|---|---|
-| Campus Ambassador | GeeksforGeeks | Jan – Jun 2026 |
-| MERN Stack Developer Intern | Codec Technologies | Oct – Nov 2025 |
-| Full Stack Developer Intern | CodeAlpha | Oct – Nov 2025 |
-| AI & Cloud Intern | Edunet Foundation × IBM SkillsBuild | Jul – Aug 2025 |
-| Full Stack Web Dev Intern | Upflairs Pvt. Ltd. | Jul – Aug 2024 |
+### Prerequisites
+- Node.js (v18+)
+- npm
 
----
+### Installation
+```bash
+git clone https://github.com/coolkunal9/kunal-portfolio-vite.git
+cd kunal-portfolio-vite
+npm install
+```
 
-## 🎓 Education & Certifications
+### Development
+```bash
+npm run dev
+```
 
-### Education
-- **B.Tech in Information Technology** — Arya College of Engineering & IT, RTU (Jaipur, India) | CGPA: 7.1/10 | 2022–2026
-
-### Certifications
-- 📜 **DSA: Project-Based Learning** — GeeksforGeeks
-- 📜 **Build with AI Agent Builder Camp** — GFG × Google
-- 📜 **NodeJS with Express & MongoDB** — Udemy
-- 📜 **MERN Stack Developer** — Codec Technologies / AICTE
-- 📜 **AI & Cloud Intern** — IBM SkillsBuild
-- 📜 **Deloitte Virtual Internship** — Forage
-- 📜 **60 Days POTD Challenge** — GeeksforGeeks
-- 📜 **Getting Started with AI** — IBM SkillsBuild
-- 📜 **Full Stack Programming** — Udemy
-- 📜 **HTML Training (Score: 90%)** — IIT Bombay Spoken Tutorial
+### Production Build
+```bash
+npm run build
+npm run preview
+```
 
 ---
 
-## 📊 GitHub Stats
-
-<div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=coolkunal9&theme=dark&show_icons=true&hide_border=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=coolkunal9&theme=dark&hide_border=true&layout=compact)
-
-</div>
-
----
-
-## 🚀 Quick Links
-
-- 🌐 **Live Portfolio**: [kunalprasad-portfolio.vercel.app](https://kunal-portfolio-vite.vercel.app/)
-- 📄 **Resume**: Available in portfolio
-- 💬 **Email**: [kunalprasad142@gmail.com](mailto:kunalprasad142@gmail.com)
-- 🔗 **LinkedIn**: [linkedin.com/in/kunal-prasad-7676392bb](https://linkedin.com/in/kunal-prasad-7676392bb)
-- 💻 **GitHub**: [@coolkunal9](https://github.com/coolkunal9)
-
----
-
-## 🤝 Let's Connect!
-
-I'm actively seeking **entry-level full-stack developer** and **MERN stack engineer** positions. Available immediately!
-
----
-
-<div align="center">
-
-**Made with ❤️ by Kunal Prasad**
-
-⭐ If you like my work, consider giving a star to my repositories!
-
-</div>
+## 📄 License
+This project is open source and available under the [MIT License](LICENSE).
