@@ -11,7 +11,7 @@ export default function About() {
         <SectionHeading
           eyebrow="Background"
           title="About Me"
-          description="Bridging software engineering with analytical insights."
+          description="Education and technical positioning."
         />
       </ScrollReveal>
 
@@ -44,9 +44,9 @@ export default function About() {
             </div>
 
             <div className="mt-6 border-t border-[var(--border-subtle)] pt-4">
-              <p className="text-xs text-[var(--text-secondary)]">
-                Focus on software design, data systems, and web architecture.
-              </p>
+              <span className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] px-2.5 py-0.5 font-mono text-xs text-[var(--text-secondary)]">
+                Status: {EDUCATION.status}
+              </span>
             </div>
           </Card>
         </ScrollReveal>

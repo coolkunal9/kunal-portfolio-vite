@@ -2,13 +2,35 @@ import { CASE_STUDY } from "../../data/content";
 import Card from "../../components/ui/Card";
 import Tag from "../../components/ui/Tag";
 import ScrollReveal from "../../components/ScrollReveal";
-import { Image, ArrowRight } from "lucide-react";
+import { Image, ArrowRight, AlertTriangle } from "lucide-react";
 
 export default function CaseStudyMeta() {
   const cs = CASE_STUDY;
 
   return (
     <div className="space-y-6">
+      {/* Limitations Block */}
+      {cs.limitations && (
+        <ScrollReveal delay={0.32}>
+          <Card className="p-5 border-[var(--border-strong)]">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertTriangle size={15} className="text-amber-500" />
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">
+                Methodological Limitations &amp; Criteria Notes
+              </h3>
+            </div>
+            <ul className="space-y-1.5 text-xs text-[var(--text-secondary)]">
+              {cs.limitations.map((lim, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="mt-1 h-1 w-1 rounded-full bg-amber-500 shrink-0" />
+                  <span>{lim}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </ScrollReveal>
+      )}
+
       {/* Visual Placeholders */}
       <ScrollReveal delay={0.35}>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -57,7 +79,7 @@ export default function CaseStudyMeta() {
             <div className="flex items-center gap-1.5 mb-2">
               <ArrowRight size={14} className="text-[var(--accent-text)]" />
               <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-[var(--accent-text)]">
-                Future Extensions
+                What I Would Do Next
               </h3>
             </div>
             <p className="text-xs leading-relaxed text-[var(--text-secondary)]">

@@ -18,7 +18,7 @@ export default function LearningRoadmap() {
         <SectionHeading
           eyebrow="Continuous Growth"
           title="Learning Roadmap"
-          description="Active and planned technical milestones towards senior full-stack and advanced data competency."
+          description="Planned technical milestones and practice areas."
         />
       </ScrollReveal>
 

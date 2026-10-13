@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Download } from "lucide-react";
+import { ArrowDown, Mail, Download, CheckCircle2 } from "lucide-react";
 import { PERSONAL } from "../data/content";
 import Section from "../components/ui/Section";
 import Button from "../components/ui/Button";
@@ -26,7 +26,7 @@ export default function Hero() {
         >
           {/* Status Badge */}
           <Badge variant="neutral" dot className="mb-6">
-            {PERSONAL.status} &bull; {PERSONAL.location}
+            {PERSONAL.statusBadge} &bull; {PERSONAL.location}
           </Badge>
 
           {/* Name & Title */}
@@ -35,12 +35,25 @@ export default function Hero() {
           </h1>
 
           <p className="mt-3 text-lg font-medium text-[var(--accent-text)] sm:text-xl">
-            {PERSONAL.title}
+            {PERSONAL.tagline}
           </p>
 
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
             {PERSONAL.bio}
           </p>
+
+          {/* Factual Proof Chips (Only these 3 verified stats) */}
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            {PERSONAL.proofChips.map((chip) => (
+              <span
+                key={chip}
+                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] px-3 py-1 font-mono text-xs font-medium text-[var(--text-primary)]"
+              >
+                <CheckCircle2 size={13} className="text-[var(--color-success)]" />
+                <span>{chip}</span>
+              </span>
+            ))}
+          </div>
 
           {/* Action CTAs */}
           <div className="mt-8 flex flex-wrap items-center gap-3">

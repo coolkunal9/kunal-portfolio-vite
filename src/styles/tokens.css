@@ -40,8 +40,8 @@
   --border-interactive: #94a3b8;
 
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-tertiary: #64748b;
+  --text-secondary: #334155;
+  --text-tertiary: #475569;
 
   /* ── Radius & Spacing ────────────────────────────────────── */
   --radius-sm: 0.375rem; /* 6px */
@@ -69,8 +69,8 @@ html.dark,
   --border-interactive: rgba(255, 255, 255, 0.25);
 
   --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
-  --text-tertiary: #71717a;
+  --text-secondary: #d4d4d8;
+  --text-tertiary: #a1a1aa;
 
   --accent-base: #6366f1;
   --accent-hover: #818cf8;

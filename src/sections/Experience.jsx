@@ -11,7 +11,7 @@ export default function Experience() {
         <SectionHeading
           eyebrow="Work History"
           title="Experience & Internships"
-          description="Internships and engineering contributions focusing on React components and workflow tools."
+          description="Internship training programs and peer academic contributions."
         />
       </ScrollReveal>
 
@@ -25,7 +25,7 @@ export default function Experience() {
                     {exp.role}
                   </h3>
                   <span className="font-mono text-xs text-[var(--accent-text)]">
-                    {exp.dates}
+                    {exp.period}
                   </span>
                 </div>
 

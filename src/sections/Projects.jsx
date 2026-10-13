@@ -26,7 +26,7 @@ export default function Projects() {
           <SectionHeading
             eyebrow="Selected Work"
             title="Projects"
-            description="Production applications and analytical reports with real code and verified outcomes."
+            description="Technical development projects and structured analytical screeners."
             className="mb-0 sm:mb-0"
           />
 
