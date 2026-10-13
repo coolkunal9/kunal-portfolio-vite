@@ -1,103 +1,56 @@
-import ScrollReveal from "../components/ScrollReveal";
 import { LEARNING_ROADMAP } from "../data/content";
-import { CircleDot, Circle, CheckCircle2 } from "lucide-react";
+import Section from "../components/ui/Section";
+import SectionHeading from "../components/ui/SectionHeading";
+import Card from "../components/ui/Card";
+import Badge from "../components/ui/Badge";
+import ScrollReveal from "../components/ScrollReveal";
 
-const STATUS_CONFIG = {
-  "in-progress": {
-    label: "In progress",
-    color: "var(--color-accent)",
-    bg: "var(--color-accent-soft)",
-    border: "var(--color-accent-border)",
-    Icon: CircleDot,
-  },
-  next: {
-    label: "Next",
-    color: "var(--color-text-muted)",
-    bg: "var(--color-surface)",
-    border: "var(--color-border)",
-    Icon: Circle,
-  },
-  planned: {
-    label: "Planned",
-    color: "var(--color-text-muted)",
-    bg: "var(--color-surface)",
-    border: "var(--color-border)",
-    Icon: Circle,
-  },
-  completed: {
-    label: "Completed",
-    color: "var(--color-success)",
-    bg: "var(--color-success-soft)",
-    border: "color-mix(in srgb, var(--color-success) 25%, transparent)",
-    Icon: CheckCircle2,
-  },
+const STATUS_MAP = {
+  "in-progress": { label: "In Progress", variant: "success", dot: true },
+  next: { label: "Up Next", variant: "accent", dot: false },
+  planned: { label: "Planned", variant: "neutral", dot: false },
 };
 
 export default function LearningRoadmap() {
   return (
-    <section id="roadmap" className="section">
+    <Section id="learning">
       <ScrollReveal>
-        <p className="section-label">Roadmap</p>
-        <h2 className="section-title">What I'm learning</h2>
-        <p className="section-desc">
-          An honest timeline of what I'm studying next. I'm interested in data
-          analytics and data science but have no DS projects yet — this is my
-          path to get there.
-        </p>
+        <SectionHeading
+          eyebrow="Continuous Growth"
+          title="Learning Roadmap"
+          description="Active and planned technical milestones towards senior full-stack and advanced data competency."
+        />
       </ScrollReveal>
 
-      <div className="flex flex-col gap-4">
-        {LEARNING_ROADMAP.map((item, i) => {
-          const config = STATUS_CONFIG[item.status];
-          const Icon = config.Icon;
+      <div className="relative border-l border-[var(--border-strong)] ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-8">
+        {LEARNING_ROADMAP.map((item, idx) => {
+          const cfg = STATUS_MAP[item.status] || STATUS_MAP.planned;
 
           return (
-            <ScrollReveal key={item.label} delay={i * 0.08}>
-              <div className="flex gap-4">
-                {/* Timeline connector */}
-                <div className="flex flex-col items-center pt-1">
-                  <Icon
-                    size={18}
-                    style={{ color: config.color, flexShrink: 0 }}
-                  />
-                  {i < LEARNING_ROADMAP.length - 1 && (
-                    <div
-                      className="mt-2 w-px flex-1"
-                      style={{ background: "var(--color-border)" }}
-                    />
-                  )}
-                </div>
+            <ScrollReveal key={`${item.label || item.topic || "step"}-${idx}`} delay={idx * 0.08}>
+              <div className="relative">
+                {/* Node Bullet */}
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[var(--bg-canvas)] bg-[var(--accent-base)]" />
 
-                {/* Content */}
-                <div
-                  className="card mb-2 flex-1 rounded-xl p-4"
-                  style={{ background: "var(--color-surface)" }}
-                >
-                  <div className="mb-1 flex items-center gap-2">
-                    <h3 className="text-sm font-semibold">{item.label}</h3>
-                    <span
-                      className="rounded-full px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wider"
-                      style={{
-                        color: config.color,
-                        background: config.bg,
-                        border: `1px solid ${config.border}`,
-                      }}
-                    >
-                      {config.label}
-                    </span>
+                <Card className="p-5">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <h3 className="text-base font-bold text-[var(--text-primary)]">
+                      {item.label}
+                    </h3>
+                    <Badge variant={cfg.variant} dot={cfg.dot}>
+                      {cfg.label}
+                    </Badge>
                   </div>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
+
+                  <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
                     {item.description}
                   </p>
-                </div>
+                </Card>
               </div>
             </ScrollReveal>
           );
         })}
       </div>
-    </section>
+    </Section>
   );
 }

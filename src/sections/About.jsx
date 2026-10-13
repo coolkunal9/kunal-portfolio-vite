@@ -1,58 +1,56 @@
-import ScrollReveal from "../components/ScrollReveal";
 import { ABOUT, EDUCATION } from "../data/content";
+import Section from "../components/ui/Section";
+import SectionHeading from "../components/ui/SectionHeading";
+import Card from "../components/ui/Card";
+import ScrollReveal from "../components/ScrollReveal";
 
 export default function About() {
   return (
-    <section id="about" className="section">
+    <Section id="about">
       <ScrollReveal>
-        <p className="section-label">About</p>
-        <h2 className="section-title">A bit about me</h2>
+        <SectionHeading
+          eyebrow="Background"
+          title="About Me"
+          description="Bridging software engineering with analytical insights."
+        />
       </ScrollReveal>
 
-      <div className="grid gap-12 md:grid-cols-3">
-        {/* Text — spans 2 cols */}
-        <ScrollReveal className="md:col-span-2" delay={0.1}>
-          <div className="flex flex-col gap-4">
-            {ABOUT.paragraphs.map((text, i) => (
-              <p
-                key={i}
-                className="text-base leading-relaxed"
-                style={{ color: "var(--color-text-muted)" }}
-              >
-                {text}
-              </p>
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+        {/* Bio Text */}
+        <ScrollReveal delay={0.1} className="lg:col-span-7">
+          <div className="space-y-4 text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
+            {ABOUT.paragraphs.map((para, i) => (
+              <p key={i}>{para}</p>
             ))}
           </div>
         </ScrollReveal>
 
-        {/* Education card */}
-        <ScrollReveal delay={0.2}>
-          <div
-            className="card rounded-2xl p-6"
-            style={{ background: "var(--color-surface)" }}
-          >
-            <p
-              className="mb-3 font-mono text-xs uppercase tracking-wider"
-              style={{ color: "var(--color-accent)" }}
-            >
-              Education
-            </p>
-            <h3 className="mb-1 text-sm font-semibold">{EDUCATION.degree}</h3>
-            <p
-              className="mb-1 text-sm"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              {EDUCATION.school}
-            </p>
-            <p
-              className="font-mono text-xs"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              {EDUCATION.location} · {EDUCATION.period}
-            </p>
-          </div>
+        {/* Education Card */}
+        <ScrollReveal delay={0.2} className="lg:col-span-5">
+          <Card className="h-full flex flex-col justify-between">
+            <div>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[var(--accent-text)]">
+                Education
+              </span>
+              <h3 className="mt-2 text-lg font-bold text-[var(--text-primary)]">
+                {EDUCATION.degree}
+              </h3>
+              <p className="text-sm font-medium text-[var(--text-secondary)]">
+                {EDUCATION.institution}
+              </p>
+              <p className="mt-1 font-mono text-xs text-[var(--text-tertiary)]">
+                {EDUCATION.duration} &bull; {EDUCATION.location}
+              </p>
+            </div>
+
+            <div className="mt-6 border-t border-[var(--border-subtle)] pt-4">
+              <p className="text-xs text-[var(--text-secondary)]">
+                Focus on software design, data systems, and web architecture.
+              </p>
+            </div>
+          </Card>
         </ScrollReveal>
       </div>
-    </section>
+    </Section>
   );
 }

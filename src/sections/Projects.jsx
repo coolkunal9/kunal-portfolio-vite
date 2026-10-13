@@ -1,65 +1,63 @@
 import { useState } from "react";
-import ScrollReveal from "../components/ScrollReveal";
-import ProjectCard from "../components/ProjectCard";
 import { PROJECTS } from "../data/content";
+import Section from "../components/ui/Section";
+import SectionHeading from "../components/ui/SectionHeading";
+import ProjectCard from "../components/ui/ProjectCard";
+import ScrollReveal from "../components/ScrollReveal";
 
 const FILTERS = [
-  { label: "All", value: "all" },
+  { label: "All Projects", value: "all" },
   { label: "Development", value: "development" },
-  { label: "Data", value: "data" },
+  { label: "Data Analytics", value: "data" },
 ];
 
 export default function Projects() {
-  const [filter, setFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("all");
 
-  const displayed =
-    filter === "all"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === filter);
+  const filtered = PROJECTS.filter((p) => {
+    if (activeFilter === "all") return true;
+    return p.category === activeFilter;
+  });
 
   return (
-    <section id="projects" className="section">
+    <Section id="projects">
       <ScrollReveal>
-        <p className="section-label">Projects</p>
-        <h2 className="section-title">What I've built</h2>
-      </ScrollReveal>
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+          <SectionHeading
+            eyebrow="Selected Work"
+            title="Projects"
+            description="Production applications and analytical reports with real code and verified outcomes."
+            className="mb-0 sm:mb-0"
+          />
 
-      {/* Filter toggle */}
-      <ScrollReveal delay={0.1}>
-        <div className="mb-10 flex flex-wrap gap-2">
-          {FILTERS.map((f) => (
-            <button
-              key={f.value}
-              onClick={() => setFilter(f.value)}
-              className="rounded-lg px-4 py-2 font-mono text-xs font-medium uppercase tracking-wider transition-all"
-              style={{
-                background:
-                  filter === f.value
-                    ? "var(--color-accent-soft)"
-                    : "transparent",
-                border: "1px solid",
-                borderColor:
-                  filter === f.value
-                    ? "var(--color-accent-border)"
-                    : "var(--color-border)",
-                color:
-                  filter === f.value
-                    ? "var(--color-accent)"
-                    : "var(--color-text-muted)",
-              }}
-            >
-              {f.label}
-            </button>
-          ))}
+          {/* Filter Pills */}
+          <div className="inline-flex rounded-[var(--radius-md)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-1 shrink-0">
+            {FILTERS.map((f) => (
+              <button
+                key={f.value}
+                type="button"
+                onClick={() => setActiveFilter(f.value)}
+                className={`rounded-[var(--radius-sm)] px-3 py-1.5 font-mono text-xs font-medium transition-colors cursor-pointer ${
+                  activeFilter === f.value
+                    ? "bg-[var(--accent-base)] text-white"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
         </div>
       </ScrollReveal>
 
-      {/* Project grid */}
-      <div className="grid gap-6 md:grid-cols-2">
-        {displayed.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {filtered.map((proj, idx) => (
+          <ScrollReveal key={proj.id} delay={idx * 0.08}>
+            <ProjectCard project={proj} />
+          </ScrollReveal>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

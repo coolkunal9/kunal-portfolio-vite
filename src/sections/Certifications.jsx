@@ -1,49 +1,41 @@
-import ScrollReveal from "../components/ScrollReveal";
 import { CERTIFICATIONS } from "../data/content";
+import Section from "../components/ui/Section";
+import SectionHeading from "../components/ui/SectionHeading";
+import Card from "../components/ui/Card";
+import ScrollReveal from "../components/ScrollReveal";
 import { Award } from "lucide-react";
 
 export default function Certifications() {
   return (
-    <section className="section" style={{ paddingTop: 0 }}>
+    <Section id="certifications">
       <ScrollReveal>
-        <p className="section-label">Certifications</p>
-        <h2 className="section-title">Credentials</h2>
+        <SectionHeading
+          eyebrow="Credentials"
+          title="Certifications & Training"
+          description="Verified course completions and program certifications."
+        />
       </ScrollReveal>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {CERTIFICATIONS.map((cert, i) => (
-          <ScrollReveal key={cert.name} delay={i * 0.06}>
-            <div
-              className="card flex items-center gap-3 rounded-xl p-4"
-              style={{ background: "var(--color-surface)" }}
-            >
-              <div
-                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg"
-                style={{
-                  background: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-border)",
-                }}
-              >
-                <Award
-                  size={16}
-                  style={{ color: "var(--color-accent)" }}
-                />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {CERTIFICATIONS.map((cert, idx) => (
+          <ScrollReveal key={`${cert.name}-${idx}`} delay={idx * 0.06}>
+            <Card className="p-4 flex items-start gap-3 h-full">
+              <div className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-[var(--radius-md)] bg-[var(--accent-subtle)] text-[var(--accent-text)] shrink-0">
+                <Award size={16} />
               </div>
+
               <div>
-                <p className="text-sm font-medium leading-tight">
+                <h3 className="text-sm font-semibold text-[var(--text-primary)] leading-snug">
                   {cert.name}
-                </p>
-                <p
-                  className="font-mono text-xs"
-                  style={{ color: "var(--color-text-muted)" }}
-                >
+                </h3>
+                <p className="mt-1 font-mono text-xs text-[var(--text-tertiary)]">
                   {cert.issuer}
                 </p>
               </div>
-            </div>
+            </Card>
           </ScrollReveal>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

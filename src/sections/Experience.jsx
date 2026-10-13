@@ -1,84 +1,51 @@
-import ScrollReveal from "../components/ScrollReveal";
 import { EXPERIENCE } from "../data/content";
-import { Briefcase } from "lucide-react";
+import Section from "../components/ui/Section";
+import SectionHeading from "../components/ui/SectionHeading";
+import Card from "../components/ui/Card";
+import ScrollReveal from "../components/ScrollReveal";
 
 export default function Experience() {
   return (
-    <section id="experience" className="section">
+    <Section id="experience">
       <ScrollReveal>
-        <p className="section-label">Experience</p>
-        <h2 className="section-title">Where I've worked</h2>
+        <SectionHeading
+          eyebrow="Work History"
+          title="Experience & Internships"
+          description="Internships and engineering contributions focusing on React components and workflow tools."
+        />
       </ScrollReveal>
 
-      <div className="flex flex-col gap-4">
-        {EXPERIENCE.map((item, i) => (
-          <ScrollReveal key={i} delay={i * 0.08}>
-            <div className="flex gap-4">
-              {/* Timeline dot + line */}
-              <div className="flex flex-col items-center pt-1">
-                <div
-                  className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full"
-                  style={{
-                    background: "var(--color-accent-soft)",
-                    border: "1px solid var(--color-accent-border)",
-                  }}
-                >
-                  <Briefcase
-                    size={14}
-                    style={{ color: "var(--color-accent)" }}
-                  />
-                </div>
-                {i < EXPERIENCE.length - 1 && (
-                  <div
-                    className="mt-2 w-px flex-1"
-                    style={{ background: "var(--color-border)" }}
-                  />
-                )}
-              </div>
-
-              {/* Content card */}
-              <div
-                className="card mb-2 flex-1 rounded-xl p-5"
-                style={{ background: "var(--color-surface)" }}
-              >
-                <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
-                  <div>
-                    <h3 className="text-sm font-semibold">{item.role}</h3>
-                    <p
-                      className="text-sm"
-                      style={{ color: "var(--color-accent)" }}
-                    >
-                      {item.org}
-                    </p>
-                  </div>
-                  <span
-                    className="flex-shrink-0 font-mono text-xs"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    {item.period}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {EXPERIENCE.map((exp, idx) => (
+          <ScrollReveal key={`${exp.org}-${idx}`} delay={idx * 0.08}>
+            <Card className="h-full flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                  <h3 className="text-base font-bold text-[var(--text-primary)]">
+                    {exp.role}
+                  </h3>
+                  <span className="font-mono text-xs text-[var(--accent-text)]">
+                    {exp.dates}
                   </span>
                 </div>
 
-                <ul className="flex flex-col gap-1.5">
-                  {item.bullets.map((bullet, bi) => (
-                    <li
-                      key={bi}
-                      className="flex gap-2 text-sm leading-relaxed"
-                      style={{ color: "var(--color-text-muted)" }}
-                    >
-                      <span
-                        className="mt-1.5 inline-block h-1 w-1 flex-shrink-0 rounded-full"
-                        style={{ background: "var(--color-accent)" }}
-                      />
-                      {bullet}
+                <p className="font-mono text-xs text-[var(--text-tertiary)] mb-4">
+                  {exp.org}
+                </p>
+
+                <ul className="space-y-2 text-xs text-[var(--text-secondary)]">
+                  {exp.bullets.map((bullet, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="mt-1 h-1 w-1 rounded-full bg-[var(--accent-base)] shrink-0" />
+                      <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </Card>
           </ScrollReveal>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
