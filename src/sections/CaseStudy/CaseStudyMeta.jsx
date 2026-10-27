@@ -51,7 +51,16 @@ export default function CaseStudyMeta() {
       )}
 
       {/* Tools, Sheet Link, and What Next */}
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <ScrollReveal delay={0.38}>
+          <Card className="h-full">
+            <h3 className="mb-3 font-mono text-xs font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">
+              Method
+            </h3>
+            <p className="text-xs leading-relaxed text-[var(--text-secondary)]">{cs.method}</p>
+          </Card>
+        </ScrollReveal>
+
         <ScrollReveal delay={0.4}>
           <Card className="h-full">
             <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-[var(--text-tertiary)] mb-3">

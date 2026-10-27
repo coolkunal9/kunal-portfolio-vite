@@ -2,10 +2,14 @@
 node_modules/
 .pnp
 .pnp.js
+.vite/
 
 # Production build outputs
 dist/
 dist-ssr/
+coverage/
+*.tsbuildinfo
+.eslintcache
 
 # Logs
 logs/
@@ -16,11 +20,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Environment variables
+# Environment variables and local credentials
 .env
-.env.local
-.env.*.local
-.env.production.local
+.env.*
+!.env.example
+!.env.*.example
+.npmrc
+!.npmrc.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
 
 # Editor & OS files
 .vscode/*
@@ -36,5 +48,7 @@ Thumbs.db
 
 # Deployment & Temporary files
 .vercel/
+.netlify/
 .tempmediaStorage/
 scratch/
+GITHUB_PROFILE_README.md

@@ -6,10 +6,7 @@
 // ── Navigation ──────────────────────────────────────────────
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Case Study", href: "#case-study" },
-  { label: "Roadmap", href: "#learning" },
+  { label: "Work", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -18,9 +15,10 @@ export const NAV_LINKS = [
 export const PERSONAL = {
   name: "Kunal Prasad",
   location: "Jaipur, Rajasthan, India",
-  tagline: "Frontend Developer (React) who also analyses data",
-  statusBadge: "Open to entry-level roles (Jaipur or remote)",
-  bio: "B.Tech IT graduate from Arya College of Engineering, Jaipur. Focused on building responsive React applications and conducting structured data analysis in spreadsheets and SQL.",
+  tagline: "Frontend developer (React) in Jaipur",
+  role: "Frontend Developer",
+  statusBadge: "Available for frontend roles · Jaipur or remote",
+  bio: "B.Tech IT graduate from Arya College of Engineering, Jaipur. I build responsive React interfaces and use spreadsheets and SQL when a product question needs data.",
   email: "kunalprasad142@gmail.com",
   linkedin: "https://www.linkedin.com/in/kunalprasad-dev/",
   github: "https://github.com/coolkunal9",
@@ -33,12 +31,17 @@ export const PERSONAL = {
   ],
 };
 
+export const CONTACT_COPY = {
+  eyebrow: "Hiring",
+  heading: "Hiring for React?",
+  description: "I am available for junior frontend roles in Jaipur or remote. Email me directly or use the form — messages land in my inbox.",
+};
+
 // ── About ───────────────────────────────────────────────────
 export const ABOUT = {
   paragraphs: [
-    "B.Tech Information Technology graduate from Arya College of Engineering, Jaipur, with a frontend focus in React and Tailwind CSS alongside spreadsheet and SQL data analysis.",
-    "Built State Stories, a full-stack MERN application with 17 integration tests, and the Zomato international expansion screener analyzing 9,551 records.",
-    "Looking for entry-level Frontend Developer or Data Analyst roles in Jaipur or remote.",
+    "I am looking for junior frontend roles in Jaipur or remote. React and Tailwind are the core of my work; spreadsheets and SQL sit alongside when I need to clean, score, or explain data.",
+    "Recent proof: State Stories, a MERN editorial app with 17 integration tests, and a Zomato expansion screener over 9,551 restaurant records.",
   ],
 };
 
@@ -47,43 +50,43 @@ export const SKILLS = {
   groups: [
     {
       title: "Frontend",
-      items: [
-        "React.js",
-        "JavaScript",
-        "HTML/CSS",
-        "Tailwind CSS",
-        "Git",
+      sections: [
+        {
+          label: "Interface",
+          items: ["React.js", "JavaScript", "HTML/CSS", "Tailwind CSS", "Git"],
+        },
+        {
+          label: "State Stories · application stack",
+          items: ["Express.js", "MongoDB"],
+        },
       ],
     },
     {
-      title: "Data Analytics",
-      items: [
-        "Excel",
-        "Google Sheets",
-        "Data cleaning",
-        "VLOOKUP",
-        "Pivot tables",
-        "Dashboards",
-        "Basic SQL",
-      ],
-    },
-    {
-      title: "Backend & Database",
-      items: [
-        "Express.js",
-        "MongoDB",
-      ],
-    },
-    {
-      title: "Currently learning",
-      isLearning: true,
-      items: [
-        "SQL on real datasets",
-        "Statistics fundamentals",
+      title: "Data",
+      sections: [
+        {
+          label: "Spreadsheets & analysis",
+          items: ["Excel", "Google Sheets", "Data cleaning", "VLOOKUP", "Pivot tables", "Dashboards"],
+        },
+        {
+          label: "Querying",
+          items: ["Basic SQL"],
+        },
       ],
     },
   ],
 };
+
+export const TECH_STACK = [
+  "React.js",
+  "JavaScript",
+  "Tailwind CSS",
+  "Excel",
+  "Google Sheets",
+  "Basic SQL",
+  "Express.js",
+  "MongoDB",
+];
 
 // ── Projects ────────────────────────────────────────────────
 export const PROJECTS = [
@@ -119,7 +122,7 @@ export const PROJECTS = [
       "Deployment: Vercel (frontend and serverless Express backend) and MongoDB Atlas.",
     ],
     tradeoffs:
-      "Tradeoffs: JWT in localStorage has no refresh/revocation; in-memory rate limiting is per serverless instance.",
+      "Tradeoffs: JWT in localStorage has no refresh/revocation; in-memory rate limiting is per serverless instance. AI tools and tutorials were used to debug and review parts of the backend; the architecture, tests, and security hardening were implemented and owned by me.",
     github: "https://github.com/coolkunal9/state-stories",
     live: "https://state-stories.vercel.app/",
   },
@@ -153,6 +156,7 @@ export const PROJECTS = [
       "Limitations: Historical snapshot without revenue, footfall, or rent data. Small samples (14-20 listings per city outside India); votes reflect engagement rather than market demand.",
     github: null,
     live: "https://docs.google.com/spreadsheets/d/e/2PACX-1vShjJaXHpAKQRjvNrDSSHYnelcwcL-ZKPluwVdYW0JfbqYQH-B-7fVR6jaYQyk-4VJPid_xZ3k2KAiV/pubhtml",
+    caseStudyHref: "#case-study",
   },
 ];
 
@@ -165,6 +169,31 @@ export const CASE_STUDY = {
     records: "9,551 restaurants across 15 countries",
     coverage: "7,403 rated listings; 2,148 unrated listings (rating 1.0 treated as not rated)",
     source: "Historical dataset snapshot; 90.6% of records are India listings (no revenue, footfall, rent or cost data).",
+  },
+  dashboard: {
+    metrics: [
+      { label: "Restaurants", value: 9551 },
+      { label: "Countries", value: 15 },
+      { label: "Rated listings", value: 7403 },
+      { label: "Unrated listings", value: 2148 },
+    ],
+    engagement: [
+      { country: "Indonesia", listings: 21, averageVotes: 772, approximate: true },
+      { country: "Turkey", listings: 34, averageVotes: 432, approximate: true },
+    ],
+    ratingsShare: [
+      { country: "Turkey", share: 88.2 },
+      { country: "Indonesia", share: 81.0 },
+      { country: "Sri Lanka", share: 65.0 },
+      { country: "Qatar", share: 55.0 },
+    ],
+    cityRatings: [
+      { city: "Jakarta", rating: 4.36 },
+      { city: "Istanbul", rating: 4.29 },
+      { city: "Ankara", rating: 4.31 },
+      { city: "Doha", rating: 4.06 },
+      { city: "Colombo", rating: 3.87 },
+    ],
   },
   cleaningSteps: [
     "Created Rating_Clean field, treating rating 1.0 and unrated entries as missing",
@@ -228,19 +257,25 @@ export const CASE_STUDY = {
     "Redo the analysis in SQL for reproducibility and to practise joins and aggregation.",
 };
 
-// ── Learning Roadmap ────────────────────────────────────────
-export const LEARNING_ROADMAP = [
+// ── Applied Focus ───────────────────────────────────────────
+export const APPLIED_FOCUS = [
   {
-    label: "SQL on real datasets",
-    status: "in-progress",
+    label: "SQL on practice datasets",
+    status: "used",
     description:
-      "Writing SELECT, GROUP BY, JOINs, and subqueries on practice datasets.",
+      "Write SELECT, filters, grouping, and joins. Next step: redo the Zomato screener in SQL so the market screen is reproducible.",
   },
   {
-    label: "Statistics fundamentals",
-    status: "planned",
+    label: "LLMs & Retrieval-Augmented Generation (RAG)",
+    status: "focus",
     description:
-      "Distributions, hypothesis testing, correlation, and regression basics.",
+      "Topic focus: how retrieval-augmented generation supplies relevant external context to a language model for more grounded responses.",
+  },
+  {
+    label: "AI & Cloud foundations",
+    status: "completed",
+    description:
+      "Completed an Emerging Technologies program with Edunet Foundation, AICTE, and IBM SkillsBuild; earned badges in Getting Started with AI and Journey to Cloud.",
   },
 ];
 
@@ -252,7 +287,7 @@ export const EXPERIENCE = [
     period: "Jan – Jun 2026",
     credentialNote: "Campus Mantri Appointment",
     bullets: [
-      "Appointed to help peers build fundamentals; encouraged participation in DSA and coding practice.",
+      "Campus representative for GeeksforGeeks: helped peers practise DSA fundamentals and stay consistent with daily coding problems.",
     ],
   },
   {
@@ -262,7 +297,7 @@ export const EXPERIENCE = [
     credentialNote: "Letter of Recommendation",
     credentialUrl: "/files/Code_Alpha.pdf",
     bullets: [
-      "Completed a one-month virtual Full Stack Development internship; received a letter of recommendation.",
+      "One-month virtual full-stack internship: built assigned web features and received a letter of recommendation for the work.",
     ],
   },
   {
@@ -272,8 +307,8 @@ export const EXPERIENCE = [
     credentialNote: "IBM SkillsBuild Badges",
     credentialUrl: "/files/edunet_foundation.pdf",
     bullets: [
-      "Completed a 4-week program in Emerging Technologies.",
-      "Earned two IBM SkillsBuild badges (Getting Started with AI; Journey to Cloud).",
+      "Four-week Emerging Technologies program covering AI and cloud foundations.",
+      "Earned IBM SkillsBuild badges: Getting Started with AI and Journey to Cloud.",
     ],
   },
   {
@@ -283,8 +318,8 @@ export const EXPERIENCE = [
     credentialNote: "Certificate of Training (45 days)",
     credentialUrl: "/files/Upflairs.pdf",
     bullets: [
-      "Completed a 45-day offline training program.",
-      "Practised HTML, CSS, JavaScript, Git/GitHub; built responsive pages and small projects.",
+      "45-day offline training: built responsive pages in HTML, CSS, and JavaScript.",
+      "Used Git and GitHub for version control on small training projects.",
     ],
   },
 ];
@@ -296,7 +331,6 @@ export const EDUCATION = {
   location: "Jaipur, Rajasthan, India",
   duration: "Sep 2022 – Jun 2026",
   status: "Graduate",
-  training: "Newton School Data Analytics: in progress (Excel and Google Sheets completed, SQL in progress)",
 };
 
 // ── Certifications ──────────────────────────────────────────

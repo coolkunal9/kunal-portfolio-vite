@@ -11,7 +11,7 @@ export default function About() {
         <SectionHeading
           eyebrow="Background"
           title="About Me"
-          description="Education and technical positioning."
+          description="What I want next, and the work that supports it."
         />
       </ScrollReveal>
 
@@ -49,11 +49,6 @@ export default function About() {
                   Status: {EDUCATION.status}
                 </span>
               </div>
-              {EDUCATION.training && (
-                <p className="font-mono text-xs text-[var(--text-tertiary)] leading-relaxed">
-                  {EDUCATION.training}
-                </p>
-              )}
             </div>
           </Card>
         </ScrollReveal>

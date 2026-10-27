@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Menu, Download } from "lucide-react";
 import { NAV_LINKS, PERSONAL } from "../../data/content";
 import { useActiveSection } from "../../hooks/useActiveSection";
@@ -28,10 +29,10 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-200 ${
+        className={`sticky top-0 z-40 w-full border-b transition-all duration-200 bg-[var(--bg-canvas)]/70 backdrop-blur-xl ${
           isScrolled
-            ? "border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)]/85 backdrop-blur-md"
-            : "bg-transparent"
+            ? "border-[var(--border-subtle)] shadow-sm"
+            : "border-transparent"
         }`}
       >
         <Container className="flex h-16 items-center justify-between">
@@ -59,13 +60,22 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`rounded-[var(--radius-md)] px-3 py-1.5 text-xs font-medium tracking-wide transition-colors ${
+                  aria-current={isActive ? "location" : undefined}
+                  className={`relative rounded-[var(--radius-md)] px-3 py-1.5 text-xs font-medium tracking-wide transition-colors ${
                     isActive
-                      ? "bg-[var(--accent-subtle)] text-[var(--accent-text)]"
+                      ? "text-[var(--accent-text)]"
                       : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)]"
                   }`}
                 >
-                  {link.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-[var(--radius-md)] bg-[var(--accent-subtle)]"
+                      transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                    />
+                  )}
+                  <span className="relative z-[1]">{link.label}</span>
                 </a>
               );
             })}

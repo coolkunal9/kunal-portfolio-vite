@@ -1,5 +1,5 @@
 import { PERSONAL } from "../../data/content";
-import { Mail } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
 import { Github, Linkedin } from "../ui/Icons";
 import Container from "../ui/Container";
 
@@ -21,7 +21,7 @@ export default function Footer() {
             {PERSONAL.name.toUpperCase()}
           </p>
           <p className="text-xs text-[var(--text-tertiary)]">
-            Frontend Developer &amp; Data Analyst &bull; Jaipur, India
+            &copy; {new Date().getFullYear()} · Frontend Developer (React)
           </p>
         </div>
 
@@ -41,9 +41,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="text-xs text-[var(--text-tertiary)]">
-          &copy; {new Date().getFullYear()} Kunal Prasad. All rights reserved.
-        </p>
+        <a href="#hero" className="inline-flex min-h-10 items-center gap-2 rounded-lg px-3 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--accent-text)] focus-visible:outline-none">
+          Back to top <ArrowUp size={14} aria-hidden="true" />
+        </a>
       </Container>
     </footer>
   );

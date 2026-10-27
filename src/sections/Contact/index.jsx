@@ -1,6 +1,7 @@
 import Section from "../../components/ui/Section";
 import SectionHeading from "../../components/ui/SectionHeading";
 import ScrollReveal from "../../components/ScrollReveal";
+import { CONTACT_COPY } from "../../data/content";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
 
@@ -9,9 +10,10 @@ export default function Contact() {
     <Section id="contact">
       <ScrollReveal>
         <SectionHeading
-          eyebrow="Get In Touch"
-          title="Contact & Availability"
-          description="Open to entry-level Frontend Developer and Data Analyst roles in Jaipur, India or remote."
+          eyebrow={CONTACT_COPY.eyebrow}
+          title={CONTACT_COPY.heading}
+          titleClassName="contact-display"
+          description={CONTACT_COPY.description}
         />
       </ScrollReveal>
 
