@@ -17,8 +17,8 @@ export const PERSONAL = {
   location: "Jaipur, Rajasthan, India",
   tagline: "Frontend developer (React) in Jaipur",
   role: "Frontend Developer",
-  statusBadge: "Available for frontend roles · Jaipur or remote",
-  bio: "B.Tech IT graduate from Arya College of Engineering, Jaipur. I build responsive React interfaces and use spreadsheets and SQL when a product question needs data.",
+  statusBadge: "Interested in frontend development and data analytics · Jaipur or remote",
+  bio: "2026 B.Tech Information Technology graduate from Arya College of Engineering, Jaipur. I build responsive React interfaces and use spreadsheets and basic SQL to explore structured data.",
   email: "kunalprasad142@gmail.com",
   linkedin: "https://www.linkedin.com/in/kunalprasad-dev/",
   github: "https://github.com/coolkunal9",
@@ -26,7 +26,7 @@ export const PERSONAL = {
   resumeUrl: "/resume.pdf",
   proofChips: [
     "10 stories, full-stack MERN",
-    "17 integration tests",
+    "18 API integration tests",
     "9,551-row Zomato analysis",
   ],
 };
@@ -34,14 +34,14 @@ export const PERSONAL = {
 export const CONTACT_COPY = {
   eyebrow: "Hiring",
   heading: "Hiring for React?",
-  description: "I am available for junior frontend roles in Jaipur or remote. Email me directly or use the form — messages land in my inbox.",
+  description: "I am interested in entry-level frontend development and data analytics roles in Jaipur or remote. Email me directly or use the form.",
 };
 
 // ── About ───────────────────────────────────────────────────
 export const ABOUT = {
   paragraphs: [
-    "I am looking for junior frontend roles in Jaipur or remote. React and Tailwind are the core of my work; spreadsheets and SQL sit alongside when I need to clean, score, or explain data.",
-    "Recent proof: State Stories, a MERN editorial app with 17 integration tests, and a Zomato expansion screener over 9,551 restaurant records.",
+    "I am a 2026 B.Tech IT graduate interested in frontend development and data analytics. I build with React and Tailwind, and use spreadsheets and basic SQL to clean and explain data.",
+    "Recent work includes State Stories, a full-stack editorial app with an 18-test API suite, and a Google Sheets restaurant market screener.",
   ],
 };
 
@@ -99,10 +99,10 @@ export const PROJECTS = [
     problem:
       "Curating culture and heritage across 10 Indian states with performant search, optimistic user interactions, and tested backend security.",
     description:
-      "Full-stack MERN editorial platform covering 10 Indian states. Built with React 18 frontend and Express 5 REST API layered into routes, services, and models, backed by MongoDB Atlas.",
+      "Full-stack MERN editorial platform covering 10 Indian states. Built with React 19 frontend and Express 5 REST API layered into routes, services, and models, backed by MongoDB Atlas.",
     role: "Full-stack development, automated integration testing, and security self-audit & hardening.",
     stack: [
-      "React 18",
+      "React 19",
       "React Router v7",
       "Tailwind CSS",
       "Framer Motion",
@@ -114,11 +114,11 @@ export const PROJECTS = [
     ],
     features: [
       "10 state stories curated across culture and heritage.",
-      "Frontend: React 18, React Router v7, Tailwind, Framer Motion; debounced search (300ms) with AbortController cancellation; optimistic comment updates; protected profile page.",
+      "Frontend: React 19, React Router v7, Tailwind, Framer Motion; debounced search (300ms) with AbortController cancellation; optimistic comment updates; protected profile page.",
       "Backend: Express 5 API with routes, services, and models layering; Joi validation; centralized error handler.",
       "Auth & Search: JWT (7-day expiry) + bcrypt (12 rounds); MongoDB $text search across title, state, and content; compound index on comments (article, createdAt).",
-      "Testing: 17 integration tests across auth, articles, and comments using Jest, Supertest, and MongoMemoryServer.",
-      "Security self-audit and hardening: fail-fast JWT secret guard in production, CORS allowlist without wildcards, auth rate limiting (10 req / 15 min), regex-escaping of state filter, capped pagination (max 50), Helmet headers, idempotent seed script with production guard.",
+      "Testing: 18 API integration tests across auth, articles, and comments using Jest, Supertest, and MongoMemoryServer.",
+      "Security self-audit and hardening: fail-fast JWT secret guard in production, CORS checks with Vercel preview suffix matching, auth rate limiting (10 req / 15 min), regex-escaping of state filter, capped pagination (max 50), Helmet headers, idempotent seed script with production guard.",
       "Deployment: Vercel (frontend and serverless Express backend) and MongoDB Atlas.",
     ],
     tradeoffs:
@@ -136,7 +136,7 @@ export const PROJECTS = [
       "Where should a new restaurant brand look first outside India?",
     description:
       "Screener analyzing 9,551 restaurants across 15 countries from a historical dataset snapshot. Evaluated 14 international markets outside India using Google Sheets to shortlist initial diligence targets.",
-    role: "Sole data analyst — data cleaning, formula modeling, pivot tables, and market scoring.",
+    role: "Data cleaning, spreadsheet analysis, pivot tables, and descriptive market screening.",
     stack: [
       "Google Sheets",
       "Excel",
@@ -146,7 +146,7 @@ export const PROJECTS = [
       "Statistical Formulas",
     ],
     features: [
-      "Dataset Scope: 9,551 restaurants across 15 countries (8,652 India listings, 90.6%; 14 countries outside India; 7,403 rated; 2,148 unrated treated as missing).",
+      "Dataset Scope: 9,551 raw records across 15 countries (8,652 India listings, 90.6%; 14 countries outside India). The cleaned sheet has 9,542 records; nine raw records with blank cuisines are absent, and the exclusion decision remains to be confirmed.",
       "Data Cleaning: Rating_Clean field created; zero costs and zero coordinates treated as missing; country names standardized via lookup; costs converted to INR.",
       "Market Findings: Indonesia (21 listings, ~772 avg votes) and Turkey (34 listings, ~432 avg votes) led engagement outside India.",
       "City Screen: Jakarta (4.36 rating / 742.69 votes), Istanbul (4.29 / 860.21), Ankara (4.31 / 131.35), Doha (4.06 / 163.80), Colombo (3.87 / 146.45).",
@@ -154,7 +154,7 @@ export const PROJECTS = [
     ],
     tradeoffs:
       "Limitations: Historical snapshot without revenue, footfall, or rent data. Small samples (14-20 listings per city outside India); votes reflect engagement rather than market demand.",
-    github: null,
+    github: "https://github.com/coolkunal9/restaurant-expansion-screener",
     live: "https://docs.google.com/spreadsheets/d/e/2PACX-1vShjJaXHpAKQRjvNrDSSHYnelcwcL-ZKPluwVdYW0JfbqYQH-B-7fVR6jaYQyk-4VJPid_xZ3k2KAiV/pubhtml",
     caseStudyHref: "#case-study",
   },
@@ -163,19 +163,19 @@ export const PROJECTS = [
 // ── Case Study: Zomato Restaurant Expansion Screener ────────
 export const CASE_STUDY = {
   title: "Zomato Restaurant Expansion Screener",
-  subtitle: "Market entry analysis using Google Sheets · 9,551 restaurants across 15 countries",
+  subtitle: "Descriptive market screening in Google Sheets · 9,551 raw records across 15 countries",
   businessQuestion: "Where should a new restaurant brand look first outside India?",
   dataOverview: {
-    records: "9,551 restaurants across 15 countries",
-    coverage: "7,403 rated listings; 2,148 unrated listings (rating 1.0 treated as not rated)",
-    source: "Historical dataset snapshot; 90.6% of records are India listings (no revenue, footfall, rent or cost data).",
+    records: "9,551 raw restaurant records across 15 countries",
+    coverage: "7,403 rated and 2,148 unrated raw listings (rating 1.0 treated as not rated)",
+    source: "Historical snapshot: the cleaned sheet has 9,542 records. Nine raw records with blank cuisines are absent; the exclusion decision remains to be confirmed. The dataset has no revenue, footfall, rent, or operating-cost data.",
   },
   dashboard: {
     metrics: [
-      { label: "Restaurants", value: 9551 },
+      { label: "Raw records", value: 9551 },
       { label: "Countries", value: 15 },
-      { label: "Rated listings", value: 7403 },
-      { label: "Unrated listings", value: 2148 },
+      { label: "Rated (raw)", value: 7403 },
+      { label: "Unrated (raw)", value: 2148 },
     ],
     engagement: [
       { country: "Indonesia", listings: 21, averageVotes: 772, approximate: true },
@@ -199,7 +199,7 @@ export const CASE_STUDY = {
     "Created Rating_Clean field, treating rating 1.0 and unrated entries as missing",
     "Treated zero costs and zero coordinates as missing data",
     "Standardised country names via lookup tables",
-    "Converted international costs to INR using conversion rates",
+    "Converted costs to INR using embedded factors; the source/date and Turkish factor need validation",
     "Created helper fields for opening year, price label, and primary cuisine while preserving raw data on a separate sheet",
   ],
   method:
@@ -236,6 +236,7 @@ export const CASE_STUDY = {
   recommendation:
     "Staged research plan: Start diligence in Indonesia and Turkey; keep Qatar and Sri Lanka as comparison markets; test Indonesian, kebab/Turkish, and dessert concepts in small pilots; price around local medians; validate rent, footfall, and delivery economics locally.",
   limitations: [
+    "The workbook has 9,551 raw records and 9,542 cleaned records; nine raw rows with blank cuisines are absent from the cleaned sheet, and the intended exclusion remains to be confirmed.",
     "Small samples (14–20 listings per city outside India).",
     "Votes reflect app engagement rather than total market demand.",
     "Dataset contains no revenue, footfall, or rent data.",
