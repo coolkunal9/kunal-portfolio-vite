@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Card from "./Card";
@@ -10,10 +11,24 @@ import Badge from "./Badge";
 export default function ProjectCard({ project, onOpen }) {
   const isData = project.category === "data";
   const reduceMotion = useReducedMotion();
+  const [tiltEnabled, setTiltEnabled] = useState(false);
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
   const rotateX = useSpring(tiltX, { stiffness: 220, damping: 24, mass: 0.6 });
   const rotateY = useSpring(tiltY, { stiffness: 220, damping: 24, mass: 0.6 });
+
+  useEffect(() => {
+    const pointerQuery = window.matchMedia(
+      "(min-width: 768px) and (hover: hover) and (pointer: fine)",
+    );
+    const updateTiltAvailability = () => {
+      setTiltEnabled(pointerQuery.matches && !reduceMotion);
+    };
+
+    updateTiltAvailability();
+    pointerQuery.addEventListener("change", updateTiltAvailability);
+    return () => pointerQuery.removeEventListener("change", updateTiltAvailability);
+  }, [reduceMotion]);
 
   const handlePointerMove = (event) => {
     if (reduceMotion || event.pointerType !== "mouse") return;
@@ -30,9 +45,9 @@ export default function ProjectCard({ project, onOpen }) {
     <motion.article
       layoutId={`project-shell-${project.id}`}
       className="project-card-shell h-full"
-      style={{ rotateX, rotateY, transformPerspective: 1000, transformStyle: "preserve-3d" }}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={resetTilt}
+      style={tiltEnabled ? { rotateX, rotateY, transformPerspective: 1000, transformStyle: "preserve-3d" } : undefined}
+      onPointerMove={tiltEnabled ? handlePointerMove : undefined}
+      onPointerLeave={tiltEnabled ? resetTilt : undefined}
     >
       <Card className="project-card-surface flex h-full min-h-[24rem] flex-col justify-between p-5 sm:p-6">
         <div>

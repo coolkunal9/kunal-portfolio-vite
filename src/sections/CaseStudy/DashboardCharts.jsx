@@ -33,6 +33,11 @@ function EngagementChart() {
   const { ref, ready, reduceMotion } = useChartVisible();
   const entries = CASE_STUDY.dashboard.engagement;
   const max = Math.max(...entries.map((entry) => entry.averageVotes));
+  const engagementSummary = entries
+    .map(({ country, averageVotes, listings }) =>
+      `${country} has approximately ${averageVotes.toFixed(1)} average votes across ${listings} listings`,
+    )
+    .join("; ");
 
   return (
     <Card className="h-full p-5 sm:p-6">
@@ -43,7 +48,7 @@ function EngagementChart() {
         </div>
         <BarChart3 size={18} className="text-[var(--accent-cyan)]" aria-hidden="true" />
       </div>
-      <div ref={ref} className="mt-6 space-y-5" role="img" aria-label="Indonesia has approximately 772 average votes across 21 listings; Turkey has approximately 432 average votes across 34 listings.">
+      <div ref={ref} className="mt-6 space-y-5" role="img" aria-label={engagementSummary}>
         {entries.map((entry, index) => (
           <div key={entry.country}>
             <div className="mb-2 flex items-baseline justify-between gap-3 text-xs">

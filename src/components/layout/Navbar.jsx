@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import { Menu, Download } from "lucide-react";
 import { NAV_LINKS, PERSONAL } from "../../data/content";
@@ -16,6 +16,8 @@ const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace("#", ""));
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const menuTriggerRef = useRef(null);
+  const closeMobileMenu = useCallback(() => setMobileOpen(false), []);
   const activeSection = useActiveSection(SECTION_IDS);
 
   useEffect(() => {
@@ -97,9 +99,12 @@ export default function Navbar() {
             </Button>
 
             <button
+              ref={menuTriggerRef}
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Open navigation menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation-dialog"
               className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] md:hidden cursor-pointer"
             >
               <Menu size={18} />
@@ -111,7 +116,8 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       <MobileMenu
         isOpen={mobileOpen}
-        onClose={() => setMobileOpen(false)}
+        onClose={closeMobileMenu}
+        triggerRef={menuTriggerRef}
         navLinks={NAV_LINKS}
         activeSection={activeSection}
         resumeUrl={PERSONAL.resumeUrl}

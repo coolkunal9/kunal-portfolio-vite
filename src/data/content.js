@@ -15,10 +15,10 @@ export const NAV_LINKS = [
 export const PERSONAL = {
   name: "Kunal Prasad",
   location: "Jaipur, Rajasthan, India",
-  tagline: "Frontend developer (React) in Jaipur",
+  tagline: "Frontend development and data analytics",
   role: "Frontend Developer",
-  statusBadge: "Interested in frontend development and data analytics · Jaipur or remote",
-  bio: "2026 B.Tech Information Technology graduate from Arya College of Engineering, Jaipur. I build responsive React interfaces and use spreadsheets and basic SQL to explore structured data.",
+  statusBadge: "Open to Relocation Across India",
+  bio: "2026 B.Tech Information Technology graduate from Arya College of Engineering, Jaipur, interested in entry-level frontend development and data analytics roles. I build responsive React interfaces and use spreadsheets and basic SQL to explore structured data.",
   email: "kunalprasad142@gmail.com",
   linkedin: "https://www.linkedin.com/in/kunalprasad-dev/",
   github: "https://github.com/coolkunal9",
@@ -27,14 +27,14 @@ export const PERSONAL = {
   proofChips: [
     "10 stories, full-stack MERN",
     "18 API integration tests",
-    "9,551-row Zomato analysis",
+    "9,551 raw / 9,542 cleaned records",
   ],
 };
 
 export const CONTACT_COPY = {
   eyebrow: "Hiring",
-  heading: "Hiring for React?",
-  description: "I am interested in entry-level frontend development and data analytics roles in Jaipur or remote. Email me directly or use the form.",
+  heading: "Hiring for Frontend or Data Analytics?",
+  description: "I am interested in entry-level frontend development and data analytics roles. Open to Relocation Across India. Email me directly or use the form.",
 };
 
 // ── About ───────────────────────────────────────────────────
@@ -135,7 +135,7 @@ export const PROJECTS = [
     problem:
       "Where should a new restaurant brand look first outside India?",
     description:
-      "Screener analyzing 9,551 restaurants across 15 countries from a historical dataset snapshot. Evaluated 14 international markets outside India using Google Sheets to shortlist initial diligence targets.",
+      "Screener comparing 9,551 raw restaurant records across 15 countries. The cleaned analysis dataset contains 9,542 records; the workbook screens 14 international markets outside India for further diligence.",
     role: "Data cleaning, spreadsheet analysis, pivot tables, and descriptive market screening.",
     stack: [
       "Google Sheets",
@@ -146,9 +146,9 @@ export const PROJECTS = [
       "Statistical Formulas",
     ],
     features: [
-      "Dataset Scope: 9,551 raw records across 15 countries (8,652 India listings, 90.6%; 14 countries outside India). The cleaned sheet has 9,542 records; nine raw records with blank cuisines are absent, and the exclusion decision remains to be confirmed.",
-      "Data Cleaning: Rating_Clean field created; zero costs and zero coordinates treated as missing; country names standardized via lookup; costs converted to INR.",
-      "Market Findings: Indonesia (21 listings, ~772 avg votes) and Turkey (34 listings, ~432 avg votes) led engagement outside India.",
+      "Dataset Scope: Raw data has 9,551 records across 15 countries (8,652 India records, 90.6%; 14 countries outside India): 7,403 rated and 2,148 not rated. Cleaned data has 9,542 records: 7,394 rated and 2,148 not rated. The nine-record difference is nine U.S. records with blank Cuisines, excluded by analyst decision because cuisine analysis requires a cuisine value; no records were removed as duplicates.",
+      "Data Cleaning: Rating_Clean and a rating-status field were created; treating source ratings of 1.0 as not rated is an analysis assumption. Zero costs and coordinates were treated as missing, country names were standardized via lookup, and costs were converted to INR using fixed factors. Text and currency-label corrections are recorded in the cleaning log but were not rechecked cell by cell.",
+      "Market Findings (cleaned dataset): Indonesia (21 listings, 772.10 average votes) and Turkey (34 listings, 431.47 average votes) led engagement outside India.",
       "City Screen: Jakarta (4.36 rating / 742.69 votes), Istanbul (4.29 / 860.21), Ankara (4.31 / 131.35), Doha (4.06 / 163.80), Colombo (3.87 / 146.45).",
       "Recommendation: Staged research plan prioritizing initial diligence in Indonesia and Turkey, comparing against Qatar and Sri Lanka.",
     ],
@@ -163,23 +163,26 @@ export const PROJECTS = [
 // ── Case Study: Zomato Restaurant Expansion Screener ────────
 export const CASE_STUDY = {
   title: "Zomato Restaurant Expansion Screener",
-  subtitle: "Descriptive market screening in Google Sheets · 9,551 raw records across 15 countries",
+  subtitle: "Descriptive market screening in Google Sheets · 9,551 raw / 9,542 cleaned records across 15 countries",
   businessQuestion: "Where should a new restaurant brand look first outside India?",
   dataOverview: {
     records: "9,551 raw restaurant records across 15 countries",
-    coverage: "7,403 rated and 2,148 unrated raw listings (rating 1.0 treated as not rated)",
-    source: "Historical snapshot: the cleaned sheet has 9,542 records. Nine raw records with blank cuisines are absent; the exclusion decision remains to be confirmed. The dataset has no revenue, footfall, rent, or operating-cost data.",
+    coverage: "Raw: 7,403 rated / 2,148 not rated. Cleaned: 7,394 rated / 2,148 not rated. Source rating 1.0 is treated as not rated as an analysis assumption.",
+    source: "The cleaned analysis dataset has 9,542 records. The nine records present in Raw Data but absent from Cleaned Data are all U.S. records with blank Cuisines. They were excluded by analyst decision because cuisine analysis requires a cuisine value; no records were removed as duplicates. The dataset has no revenue, footfall, rent, or operating-cost data.",
   },
   dashboard: {
     metrics: [
       { label: "Raw records", value: 9551 },
-      { label: "Countries", value: 15 },
       { label: "Rated (raw)", value: 7403 },
-      { label: "Unrated (raw)", value: 2148 },
+      { label: "Not rated (raw)", value: 2148 },
+      { label: "Cleaned records", value: 9542 },
+      { label: "Rated (cleaned)", value: 7394 },
+      { label: "Not rated (cleaned)", value: 2148 },
+      { label: "Countries", value: 15 },
     ],
     engagement: [
-      { country: "Indonesia", listings: 21, averageVotes: 772, approximate: true },
-      { country: "Turkey", listings: 34, averageVotes: 432, approximate: true },
+      { country: "Indonesia", listings: 21, averageVotes: 772.1 },
+      { country: "Turkey", listings: 34, averageVotes: 431.47 },
     ],
     ratingsShare: [
       { country: "Turkey", share: 88.2 },
@@ -196,21 +199,22 @@ export const CASE_STUDY = {
     ],
   },
   cleaningSteps: [
-    "Created Rating_Clean field, treating rating 1.0 and unrated entries as missing",
+    "Created Rating_Clean and a rating-status field; treating source rating 1.0 as not rated is an analysis assumption",
     "Treated zero costs and zero coordinates as missing data",
     "Standardised country names via lookup tables",
-    "Converted costs to INR using embedded factors; the source/date and Turkish factor need validation",
+    "Recorded text and currency-label corrections in the cleaning log; these corrections were not rechecked cell by cell",
+    "Converted costs to INR using fixed factors; the rate source/date and Turkish factor need validation",
     "Created helper fields for opening year, price label, and primary cuisine while preserving raw data on a separate sheet",
   ],
   method:
     "Google Sheets analysis utilizing TRIM, IF, VLOOKUP, MID/FIND/YEAR, pivot tables, COUNTIFS, AVERAGEIFS, CORREL, FILTER, charts, slicers, and conditional formatting.",
   findingsCaveat:
-    "Note: Sample sizes outside India are small. Findings reflect listings and vote engagement in this dataset snapshot, not total consumer demand.",
+    "Findings below use the cleaned 9,542-record dataset. Samples outside India are small; results describe listings and vote engagement in this snapshot, not total consumer demand.",
   keyFindings: [
     {
       metric: "Engagement Leaders",
       detail:
-        "Indonesia: 21 listings, ~772 avg votes. Turkey: 34 listings, ~432 avg votes (highest engagement outside India).",
+        "Indonesia: 21 listings, 772.10 average votes. Turkey: 34 listings, 431.47 average votes (highest engagement outside India).",
     },
     {
       metric: "High-Score Density",
@@ -230,13 +234,13 @@ export const CASE_STUDY = {
     {
       metric: "Price vs Rating Correlation",
       detail:
-        "Price tier does not consistently predict rating in the shortlist (pooled correlation ~0.02).",
+        "Price-range/rating correlation was about 0.02 in the four-country comparison (price ranges 2–4; n=87 records with the required values). This describes a small sample and does not establish a general relationship.",
     },
   ],
   recommendation:
     "Staged research plan: Start diligence in Indonesia and Turkey; keep Qatar and Sri Lanka as comparison markets; test Indonesian, kebab/Turkish, and dessert concepts in small pilots; price around local medians; validate rent, footfall, and delivery economics locally.",
   limitations: [
-    "The workbook has 9,551 raw records and 9,542 cleaned records; nine raw rows with blank cuisines are absent from the cleaned sheet, and the intended exclusion remains to be confirmed.",
+    "The cleaned analysis dataset excludes nine U.S. records with blank Cuisines by analyst decision; cuisine-level results therefore omit those records.",
     "Small samples (14–20 listings per city outside India).",
     "Votes reflect app engagement rather than total market demand.",
     "Dataset contains no revenue, footfall, or rent data.",

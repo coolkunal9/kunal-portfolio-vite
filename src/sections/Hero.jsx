@@ -9,8 +9,8 @@ import avatarImg from "../assets/avatar.webp";
 
 const headline = ["I build", "React", "interfaces."];
 const metrics = [
-  { value: 17, label: "integration tests", suffix: "" },
-  { value: 9551, label: "restaurants analysed", suffix: "" },
+  { value: 18, label: "API integration tests", suffix: "" },
+  { value: 9551, label: "raw records", suffix: "" },
   { value: 10, label: "state stories", suffix: "" },
 ];
 
@@ -132,7 +132,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }} className="mt-4 max-w-xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
-            React and Tailwind in {PERSONAL.location}. Spreadsheets and SQL when a product question needs data.
+            I build responsive React interfaces and use spreadsheets and basic SQL to explore data.
           </motion.p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

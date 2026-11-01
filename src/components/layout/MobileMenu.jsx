@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { X, Download } from "lucide-react";
 import Button from "../ui/Button";
 
@@ -8,33 +8,71 @@ import Button from "../ui/Button";
 export default function MobileMenu({
   isOpen,
   onClose,
+  triggerRef,
   navLinks,
   activeSection,
   resumeUrl,
 }) {
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+
   useEffect(() => {
     if (!isOpen) return;
 
+    const previousFocus = document.activeElement;
+    const previousBodyOverflow = document.body.style.overflow;
+    closeButtonRef.current?.focus();
+    document.body.style.overflow = "hidden";
+
     const handleKeyDown = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusable = dialogRef.current?.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) {
+        e.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const focusIsOutsideDialog = !dialogRef.current?.contains(document.activeElement);
+      if (e.shiftKey && (document.activeElement === first || focusIsOutsideDialog)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || focusIsOutsideDialog)) {
+        e.preventDefault();
+        first.focus();
+      }
     };
 
     document.addEventListener("keydown", handleKeyDown);
-    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousBodyOverflow;
+      const returnFocusTo = triggerRef?.current ?? previousFocus;
+      if (returnFocusTo?.isConnected) returnFocusTo.focus();
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, triggerRef]);
 
   if (!isOpen) return null;
 
   return (
     <div
+      ref={dialogRef}
+      id="mobile-navigation-dialog"
       role="dialog"
       aria-modal="true"
       aria-label="Navigation Menu"
+      tabIndex={-1}
       className="fixed inset-0 z-50 flex flex-col bg-[var(--bg-canvas)]/95 backdrop-blur-md md:hidden"
     >
       {/* Drawer Header */}
@@ -43,6 +81,7 @@ export default function MobileMenu({
           NAVIGATION
         </span>
         <button
+          ref={closeButtonRef}
           type="button"
           onClick={onClose}
           aria-label="Close navigation menu"
@@ -53,7 +92,10 @@ export default function MobileMenu({
       </div>
 
       {/* Nav List */}
-      <nav className="flex flex-1 flex-col justify-center gap-2 px-8">
+      <nav
+        aria-label="Mobile primary"
+        className="flex flex-1 flex-col justify-center gap-2 px-8"
+      >
         {navLinks.map((link) => {
           const isActive = activeSection === link.href.replace("#", "");
           return (
